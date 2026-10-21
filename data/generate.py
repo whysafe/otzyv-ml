@@ -190,7 +190,7 @@ def generate(seed: int = 42, per_class: int = PER_CLASS) -> list[tuple[str, str]
 def main() -> None:
     rows = generate()
     with OUT.open("w", encoding="utf-8", newline="") as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator="\n")
         w.writerow(["text", "label"])
         w.writerows(rows)
     print(f"{len(rows)} строк -> {OUT}")
